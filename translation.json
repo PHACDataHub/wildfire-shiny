@@ -1,0 +1,21 @@
+{
+    "languages": ["English", "Français"], 
+    "translation":[
+        {"English":"Language", "Français":"Langue"},
+        {"English":"Select language", "Français":"Sélectionnez la lange"},
+        {"English":"Filters", "Français":"Filtres"},
+        {"English":"Fire risk", "Français":"Risque d'incendie"},
+        {"English":"Fire Risk", "Français":"Risque d'incendie"},
+        {"English":"Select fire danger level", "Français":"Sélectionnez le niveau de danger d'incendie"},
+        {"English":"low", "Français":"faible"},
+        {"English":"moderate", "Français":"modéré"},
+        {"English":"high", "Français":"élevé"},
+        {"English":"very high", "Français":"très élevé"},
+        {"English":"extreme", "Français":"extrême"},
+        {"English":"Select number of cities at risk (by population)", "Français":"Sélectionnez le nombre de villes à risque (en fonction de la population)"},
+        {"English":"City", "Français":"Ville"},
+        {"English":"Province/territory:", "Français":"Province/territoire"},
+        {"English":"Population", "Français":"Population"},
+        {"English":"Fire danger level", "Français":"Niveau de danger d'incendie"}
+    ]
+}

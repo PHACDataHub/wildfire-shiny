@@ -1,0 +1,1609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE WMT_MS_Capabilities SYSTEM "https://cwfis.cfs.nrcan.gc.ca/geoserver/schemas/wms/1.1.1/WMS_MS_Capabilities.dtd">
+<WMT_MS_Capabilities version="1.1.1" updateSequence="9378168">
+  <Service>
+    <Name>OGC:WMS</Name>
+    <Title>GeoServer Web Map Service</Title>
+    <Abstract>A compliant implementation of WMS plus most of the SLD extension (dynamic styling). Can also generate PDF, SVG, KML, GeoRSS</Abstract>
+    <KeywordList>
+      <Keyword>WFS</Keyword>
+      <Keyword>WMS</Keyword>
+      <Keyword>GEOSERVER</Keyword>
+    </KeywordList>
+    <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://geoserver.sourceforge.net/html/index.php"/>
+    <ContactInformation>
+      <ContactPersonPrimary>
+        <ContactPerson>John Little</ContactPerson>
+        <ContactOrganization>Natural Resources Canada</ContactOrganization>
+      </ContactPersonPrimary>
+      <ContactPosition>Spatial Data Analyst</ContactPosition>
+      <ContactAddress>
+        <AddressType>5320-122 Street</AddressType>
+        <Address/>
+        <City>Edmonton</City>
+        <StateOrProvince>Alberta</StateOrProvince>
+        <PostCode>T6H 3S5</PostCode>
+        <Country>Canada</Country>
+      </ContactAddress>
+      <ContactVoiceTelephone>780-430-3811</ContactVoiceTelephone>
+      <ContactFacsimileTelephone>780-435-7359</ContactFacsimileTelephone>
+      <ContactElectronicMailAddress>john.little@canada.ca</ContactElectronicMailAddress>
+    </ContactInformation>
+    <Fees>NONE</Fees>
+    <AccessConstraints>NONE</AccessConstraints>
+  </Service>
+  <Capability>
+    <Request>
+      <GetCapabilities>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <Format>text/xml</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?SERVICE=WMS&amp;"/>
+            </Get>
+            <Post>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?SERVICE=WMS&amp;"/>
+            </Post>
+          </HTTP>
+        </DCPType>
+      </GetCapabilities>
+      <GetMap>
+        <Format>image/png</Format>
+        <Format>application/atom xml</Format>
+        <Format>application/atom+xml</Format>
+        <Format>application/json;type=utfgrid</Format>
+        <Format>application/openlayers</Format>
+        <Format>application/openlayers2</Format>
+        <Format>application/openlayers3</Format>
+        <Format>application/pdf</Format>
+        <Format>application/rss xml</Format>
+        <Format>application/rss+xml</Format>
+        <Format>application/vnd.google-earth.kml</Format>
+        <Format>application/vnd.google-earth.kml xml</Format>
+        <Format>application/vnd.google-earth.kml+xml</Format>
+        <Format>application/vnd.google-earth.kml+xml;mode=networklink</Format>
+        <Format>application/vnd.google-earth.kmz</Format>
+        <Format>application/vnd.google-earth.kmz xml</Format>
+        <Format>application/vnd.google-earth.kmz+xml</Format>
+        <Format>application/vnd.google-earth.kmz;mode=networklink</Format>
+        <Format>atom</Format>
+        <Format>image/geotiff</Format>
+        <Format>image/geotiff8</Format>
+        <Format>image/gif</Format>
+        <Format>image/gif;subtype=animated</Format>
+        <Format>image/jpeg</Format>
+        <Format>image/png8</Format>
+        <Format>image/png; mode=8bit</Format>
+        <Format>image/svg</Format>
+        <Format>image/svg xml</Format>
+        <Format>image/svg+xml</Format>
+        <Format>image/tiff</Format>
+        <Format>image/tiff8</Format>
+        <Format>image/vnd.jpeg-png</Format>
+        <Format>image/vnd.jpeg-png8</Format>
+        <Format>kml</Format>
+        <Format>kmz</Format>
+        <Format>openlayers</Format>
+        <Format>rss</Format>
+        <Format>text/html; subtype=openlayers</Format>
+        <Format>text/html; subtype=openlayers2</Format>
+        <Format>text/html; subtype=openlayers3</Format>
+        <Format>utfgrid</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?SERVICE=WMS&amp;"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetMap>
+      <GetFeatureInfo>
+        <Format>text/plain</Format>
+        <Format>application/vnd.ogc.gml</Format>
+        <Format>text/xml</Format>
+        <Format>application/vnd.ogc.gml/3.1.1</Format>
+        <Format>text/xml; subtype=gml/3.1.1</Format>
+        <Format>text/html</Format>
+        <Format>text/javascript</Format>
+        <Format>application/json</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?SERVICE=WMS&amp;"/>
+            </Get>
+            <Post>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?SERVICE=WMS&amp;"/>
+            </Post>
+          </HTTP>
+        </DCPType>
+      </GetFeatureInfo>
+      <DescribeLayer>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?SERVICE=WMS&amp;"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </DescribeLayer>
+      <GetLegendGraphic>
+        <Format>image/png</Format>
+        <Format>image/jpeg</Format>
+        <Format>application/json</Format>
+        <Format>image/gif</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?SERVICE=WMS&amp;"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetLegendGraphic>
+      <GetStyles>
+        <Format>application/vnd.ogc.sld+xml</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?SERVICE=WMS&amp;"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetStyles>
+    </Request>
+    <Exception>
+      <Format>application/vnd.ogc.se_xml</Format>
+      <Format>application/vnd.ogc.se_inimage</Format>
+      <Format>application/vnd.ogc.se_blank</Format>
+      <Format>application/json</Format>
+      <Format>text/javascript</Format>
+    </Exception>
+    <UserDefinedSymbolization SupportSLD="1" UserLayer="1" UserStyle="1" RemoteWFS="1"/>
+    <Layer>
+      <Title>GeoServer Web Map Service</Title>
+      <Abstract>A compliant implementation of WMS plus most of the SLD extension (dynamic styling). Can also generate PDF, SVG, KML, GeoRSS</Abstract>
+      <!--Limited list of EPSG projections:-->
+      <SRS>EPSG:3978</SRS>
+      <SRS>EPSG:2294</SRS>
+      <SRS>EPSG:2295</SRS>
+      <SRS>EPSG:3005</SRS>
+      <SRS>EPSG:3347</SRS>
+      <SRS>EPSG:3395</SRS>
+      <SRS>EPSG:3400</SRS>
+      <SRS>EPSG:3401</SRS>
+      <SRS>EPSG:3571</SRS>
+      <SRS>EPSG:3572</SRS>
+      <SRS>EPSG:3573</SRS>
+      <SRS>EPSG:3574</SRS>
+      <SRS>EPSG:3575</SRS>
+      <SRS>EPSG:3576</SRS>
+      <SRS>EPSG:3857</SRS>
+      <SRS>EPSG:4269</SRS>
+      <SRS>EPSG:4326</SRS>
+      <SRS>EPSG:26707</SRS>
+      <SRS>EPSG:26708</SRS>
+      <SRS>EPSG:26709</SRS>
+      <SRS>EPSG:26710</SRS>
+      <SRS>EPSG:26711</SRS>
+      <SRS>EPSG:26712</SRS>
+      <SRS>EPSG:26713</SRS>
+      <SRS>EPSG:26714</SRS>
+      <SRS>EPSG:26715</SRS>
+      <SRS>EPSG:26716</SRS>
+      <SRS>EPSG:26717</SRS>
+      <SRS>EPSG:26718</SRS>
+      <SRS>EPSG:26719</SRS>
+      <SRS>EPSG:26720</SRS>
+      <SRS>EPSG:26721</SRS>
+      <SRS>EPSG:26722</SRS>
+      <SRS>EPSG:26907</SRS>
+      <SRS>EPSG:26908</SRS>
+      <SRS>EPSG:26909</SRS>
+      <SRS>EPSG:26910</SRS>
+      <SRS>EPSG:26911</SRS>
+      <SRS>EPSG:26912</SRS>
+      <SRS>EPSG:26913</SRS>
+      <SRS>EPSG:26914</SRS>
+      <SRS>EPSG:26915</SRS>
+      <SRS>EPSG:26916</SRS>
+      <SRS>EPSG:26917</SRS>
+      <SRS>EPSG:26918</SRS>
+      <SRS>EPSG:26919</SRS>
+      <SRS>EPSG:26920</SRS>
+      <SRS>EPSG:26921</SRS>
+      <SRS>EPSG:26922</SRS>
+      <SRS>EPSG:32181</SRS>
+      <SRS>EPSG:32182</SRS>
+      <SRS>EPSG:32183</SRS>
+      <SRS>EPSG:32184</SRS>
+      <SRS>EPSG:32185</SRS>
+      <SRS>EPSG:32186</SRS>
+      <SRS>EPSG:32187</SRS>
+      <SRS>EPSG:32188</SRS>
+      <SRS>EPSG:32189</SRS>
+      <SRS>EPSG:32190</SRS>
+      <SRS>EPSG:32191</SRS>
+      <SRS>EPSG:32192</SRS>
+      <SRS>EPSG:32193</SRS>
+      <SRS>EPSG:32194</SRS>
+      <SRS>EPSG:32195</SRS>
+      <SRS>EPSG:32196</SRS>
+      <SRS>EPSG:32197</SRS>
+      <SRS>EPSG:32198</SRS>
+      <SRS>EPSG:41001</SRS>
+      <SRS>EPSG:42101</SRS>
+      <SRS>EPSG:42304</SRS>
+      <SRS>EPSG:900913</SRS>
+      <LatLonBoundingBox minx="-180.0" miny="-11.571437552198061" maxx="180.0" maxy="90.0"/>
+      <Layer queryable="1" opaque="0">
+        <Name>FBP_FuelLayer_wBurnScars</Name>
+        <Title>Canadian Forest FBP Fuel Types (CanFG)</Title>
+        <Abstract>A national map of Canadian FBP fuel types (with burn scars) developed from public data sources. The resolution of the raster is 250m. Data sources include the kNN Forest Inventory (2017) and National Burn Area Composite.&#13;
+Metadata: http://cwfis.cfs.nrcan.gc.ca/downloads/fuels/development/Canadian_Forest_FBP_Fuel_Types/Canadian_Forest_FBP_Fuel_Types_Metadata_v20191114.pdf</Abstract>
+        <KeywordList>
+          <Keyword>WCS</Keyword>
+          <Keyword>GeoTIFF</Keyword>
+          <Keyword>FBP_FuelLayer_wBurnScars_3978</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-173.46591252976782" miny="35.838973387030144" maxx="-12.021212341103638" maxy="83.22287964876992"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2341249.9999999935" miny="-724826.0226333495" maxx="3009750.0000000065" maxy="3833423.9773666505"/>
+        <Style>
+          <Title>cwfis_nat_risk_analysis_fuels</Title>
+          <Abstract>Symbology for national risk fbp fuel types</Abstract>
+          <Name>cwfis_nat_risk_analysis_fuels</Name>
+          <LegendURL width="483" height="3274">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=FBP_FuelLayer_wBurnScars"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>NFDB_MRB</Name>
+        <Title>NFDB_MRB_1980to2021</Title>
+        <Abstract>Most recent burn by cell (1980-2021) as extracted from the NFDB poly version 2022;&#13;
+Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/nfdb/fire_poly/current_version/NFDB_Poly_metadata_NAP_ISO_19115_2003.xml&#13;
+http://cwfis.cfs.nrcan.gc.ca/downloads/nfdb/fire_poly/current_version/NFDB_Poly_metadata_NAP_ISO_19115_2003_EN.pdf</Abstract>
+        <KeywordList>
+          <Keyword>NFDB_MRB_1980to2021</Keyword>
+          <Keyword>WCS</Keyword>
+          <Keyword>GeoTIFF</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-173.4623087850071" miny="35.83775930927361" maxx="-12.023167021456423" maxy="83.22167576076413"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2341170.4601" miny="-724947.0871704705" maxx="3009829.5399" maxy="3833302.9128295295"/>
+        <Style>
+          <Title>nfdb_mrb_1980to2021</Title>
+          <Abstract>CWFIS symbology for NFDB Most Recent Burns (MRB) derived from NFDB polygons</Abstract>
+          <Name>nfdb_mrb_1980to2021</Name>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=NFDB_MRB"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>NFDB_MRB_2020</Name>
+        <Title>NFDB_MRB_1980to2020</Title>
+        <Abstract>Most recent burn by cell (1980-2020) as extracted from the NFDB poly version 2021;&#13;
+Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/nfdb/fire_poly/current_version/NFDB_Poly_metadata_NAP_ISO_19115_2003.xml&#13;
+http://cwfis.cfs.nrcan.gc.ca/downloads/nfdb/fire_poly/current_version/NFDB_Poly_metadata_NAP_ISO_19115_2003_EN.pdf</Abstract>
+        <KeywordList>
+          <Keyword>NFDB_MRB_1980to2020</Keyword>
+          <Keyword>WCS</Keyword>
+          <Keyword>GeoTIFF</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-173.4623087850071" miny="35.83775930927361" maxx="-12.023167021456423" maxy="83.22167576076413"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2341170.4601" miny="-724947.0871704705" maxx="3009829.5399" maxy="3833302.9128295295"/>
+        <Style>
+          <Title>nfdb_mrb_1980to2020</Title>
+          <Abstract>CWFIS symbology for NFDB Most Recent Burns (MRB) derived from NFDB polygons</Abstract>
+          <Name>nfdb_mrb_1980to2020</Name>
+          <LegendURL width="54" height="92">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=NFDB_MRB_2020"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Title>nfdb_mrb_last5years</Title>
+          <Abstract>CWFIS sample symbology for NFDB most recent burns</Abstract>
+          <Name>nfdb_mrb_last5years</Name>
+          <LegendURL width="54" height="92">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=NFDB_MRB_2020&amp;style=nfdb_mrb_last5years"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>NFDB_point_1980to2019</Name>
+        <Title>NFDB_point_1980to2019</Title>
+        <Abstract>National Fire Database fire point data / Données ponctuelles de la Base nationale de données sur les feux (1980-2019) / version NFDB_point_20200820_wms; &#13;
+Metadata / Métadonnées: https://cwfis.cfs.nrcan.gc.ca/downloads/nfdb/fire_pnt/current_version/NFDB_Point_metadata_NAP_ISO_19115_2003.xml&#13;
+https://cwfis.cfs.nrcan.gc.ca/downloads/nfdb/fire_pnt/current_version/NFDB_Point_metadata_NAP_ISO_19115_2003.pdf</Abstract>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>NFDB_point_20200820_wms</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.82377755752404" miny="-6.114153240119089" maxx="0.0" maxy="82.82699751929074"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2653726.6879625814" miny="-579185.9649224887" maxx="1.1205750009042038E7" maxy="3787032.700145923"/>
+        <Style>
+          <Title>NFDB_points_by_size</Title>
+          <Abstract>Symbology for NFDB_firepoints displayed by size</Abstract>
+          <Name>NFDB_points_by_size</Name>
+          <LegendURL width="131" height="120">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=NFDB_point_1980to2019"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Title>NFDB_points_by_cause</Title>
+          <Abstract>Symbology for NFDB_firepoints displayed by cause</Abstract>
+          <Name>NFDB_points_by_cause</Name>
+          <LegendURL width="144" height="80">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=NFDB_point_1980to2019&amp;style=NFDB_points_by_cause"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Title>NFDB_points_by_size</Title>
+          <Abstract>Symbology for NFDB_firepoints displayed by size</Abstract>
+          <Name>NFDB_points_by_size</Name>
+          <LegendURL width="131" height="120">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=NFDB_point_1980to2019&amp;style=NFDB_points_by_size"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>activefires_current</Name>
+        <Title>activefires_current</Title>
+        <Abstract>Reported active fire locations are updated daily as provided by fire management agencies (provinces, territories and Parks Canada). / Les positions rapportées des feux de végétation actifs sont mises à jour quotidiennement d’après les données fournies par les agences de gestion des feux (provinces, territoires et Parcs Canada).&amp;#xd;&#13;
+Metadata / Métadonnées: https://cwfis.cfs.nrcan.gc.ca/downloads/activefires/activefires_metadata_NAP_ISO_19115_2003_EN.pdf&lt;/abstract&gt;</Abstract>
+        <KeywordList>
+          <Keyword>active fires</Keyword>
+          <Keyword>reported fires</Keyword>
+          <Keyword>wildfire</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-180.0" miny="30.220259209268296" maxx="180.0" maxy="87.46090453011479"/>
+        <BoundingBox SRS="EPSG:3978" minx="-3753241.794707766" miny="-1015910.8243446802" maxx="3836041.94022178" maxy="4290855.707216153"/>
+        <DataURL>
+          <Format>text/plain</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/downloads/activefires/activefires.csv"/>
+        </DataURL>
+        <Style>
+          <Title>cwfis_activefires_bysizeandsoc</Title>
+          <Abstract>CWFIS custom symbology for activefires displayed by size and stage of control</Abstract>
+          <Name>cwfis_activefires_bysizeandsoc</Name>
+          <LegendURL width="116" height="320">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=activefires_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>basemap_inside_bndry</Name>
+        <Title>basemap_inside_bndry</Title>
+        <Abstract>Base-map administrative boundary linear features.</Abstract>
+        <KeywordList>
+          <Keyword>inside_bndry_lcc</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-159.4644585828343" miny="42.16603133385127" maxx="-27.453214679015254" maxy="78.9585688716597"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2201270.124665298" miny="-181670.95415343437" maxx="2459174.557475176" maxy="3282349.3657771563"/>
+        <Style>
+          <Title>basemap_internal_bndry_lines</Title>
+          <Abstract>Sample style for basemap internal bounadries</Abstract>
+          <Name>basemap_internal_bndry_lines</Name>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=basemap_inside_bndry"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>basemap_land</Name>
+        <Title>basemap_land</Title>
+        <Abstract>Base-map land polygon features</Abstract>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>boundaries2_lcc</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-180.0" miny="-11.571437552198061" maxx="180.0" maxy="90.0"/>
+        <BoundingBox SRS="EPSG:3978" minx="-9246963.602423955" miny="-5157307.23940366" maxx="5543524.640186562" maxy="5805705.520375116"/>
+        <Style>
+          <Title>basemap_land</Title>
+          <Abstract>Sample style for cwfis basemap land polygons</Abstract>
+          <Name>basemap_land</Name>
+          <LegendURL width="54" height="100">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=basemap_land"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Title>basemap_land_simple</Title>
+          <Abstract>A simple style for basemap land polygons</Abstract>
+          <Name>basemap_land_simple</Name>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=basemap_land&amp;style=basemap_land_simple"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>bui_current</Name>
+        <Title>Buildup Index / Indice de combustible disponible (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>The Buildup Index is a component of the Canadian Forest Fire Weather Index (FWI) System. It is a numeric rating of the total amount of fuel available for combustion. It combines the Duff Moisture Code and the Drought Code. / L\'Indice du combustible disponible est une composante de la Méthode canadienne de l'Indice Forêt- Météo (IFM). Il s'agit d'une évaluation numérique de la quantité totale de combustible disponible qui combine l'Indice d'humidité de l'humus et l'Indice de sécheresse; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fwi_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_bui</Title>
+          <Abstract>cwfis symbology for buildup index (bui)</Abstract>
+          <Name>cffdrs_bui</Name>
+          <LegendURL width="236" height="164">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=bui_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>cfb_current</Name>
+        <Title>Crown Fraction Burned / Fraction consumée des cimes (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>Crown Fraction Burned (CFB) is the predicted fraction of the tree crowns consumed by the fire. It is based on Buildup Index, Foliar Moisture Content, Surface Fuel Consumption, and Rate of Spread. / La fraction consumée des cimes (FCC) est la fraction prédite des couronnes d'arbre consumées par un incendie. Elle est basée sur l'Indice du combustible disponible, l'humidité foliaire, le brûlage des combustibles de surface ainsi que la vitesse de propagation; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_cfb</Title>
+          <Abstract>cwfis symbology for crown fraction burned (cfb)</Abstract>
+          <Name>cffdrs_cfb</Name>
+          <LegendURL width="183" height="163">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=cfb_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>dc_current</Name>
+        <Title>Drought Code / Indice de sécheresse (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>The Drought Code is a component of the Canadian Forest Fire Weather Index (FWI) System. It is a numeric rating of the average moisture content of deep, compact organic layers. This code is a useful indicator of seasonal drought effects on forest fuels and the amount of smoldering in deep duff layers and large logs. / L\'Indice de sécheresse est une composante de la Méthode canadienne de l\'Indice Forêt-Météo (IFM). Il s'agit d'une évaluation numérique de la teneur en eau des épaisses couches organiques compactes. C'est un indicateur utile des effets saisonniers des sécheresses sur les combustibles forestiers et du degré de latence du feu dans les épaisses couches organiques et les grosses billes; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fwi_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_dc</Title>
+          <Abstract>cwfis symbology for drought code (dc)</Abstract>
+          <Name>cffdrs_dc</Name>
+          <LegendURL width="236" height="141">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=dc_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>dmc_current</Name>
+        <Title>Duff Moisture Code / Indice d’humidité de l’humus (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>The Duff Moisture Code is a component of the Canadian Forest Fire Weather Index (FWI) System. It is a numeric rating of the average moisture content of loosely compacted organic layers of moderate depth. This code gives an indication of fuel consumption in moderate duff layers and medium-size woody material. / L'Indice d'humidité de l'humus est une composante de la Méthode canadienne de l'Indice Forêt-Météo (IFM). Il s'agit d'une évaluation numérique de la teneur moyenne en eau des couches organiques peu tassées de moyenne épaisseur. Il donne une indication de la combustion du combustible dans les couches organiques de moyenne épaisseur et les matières ligneuses de taille moyenne; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fwi_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_dmc</Title>
+          <Abstract>cwfis symbology for duff moisture code (dmc)</Abstract>
+          <Name>cffdrs_dmc</Name>
+          <LegendURL width="257" height="141">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=dmc_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>dsr_current</Name>
+        <Title>Daily Severity Rating / Indice journalier de sévérité (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>The Daily Severity Rating is a component of the Canadian Forest Fire Weather Index (FWI) System. It is a numeric rating of the difficulty of controlling fires. It is based on the Fire Weather Index but more accurately reflects the expected efforts required for fire suppression. / L'indice journalier de sévérité est une composante de la Méthode canadienne de l'Indice Forêt-Météo (IFM). Il s'agit d'une évaluation numérique de la difficulté à contrôler des feux. Il est basé sur l'Indice Forêt-Météo, mais reflète plus précisément les efforts attendus requis pour la suppression; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fwi_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_dsr</Title>
+          <Abstract>cwfis symbology for daily severity rating (dsr)</Abstract>
+          <Name>cffdrs_dsr</Name>
+          <LegendURL width="247" height="141">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=dsr_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>elevation_250m</Name>
+        <Title>elevation_250m</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>WCS</Keyword>
+          <Keyword>GeoTIFF</Keyword>
+          <Keyword>elevation_250m</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.02182317107975" miny="33.47809846262167" maxx="178.8474598511335" maxy="85.26621631251517"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2796378.417416295" miny="-964374.4676871542" maxx="3161621.582583705" maxy="4039625.532312846"/>
+        <Style>
+          <Title>elev</Title>
+          <Abstract>sample style for elevation</Abstract>
+          <Name>elev</Name>
+          <LegendURL width="130" height="63">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=elevation_250m"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230630xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-06-30</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230630xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230701xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-01</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230701xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230702xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-02</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230702xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230703xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-03</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230703xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230704xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-04</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230704xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230705xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-05</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230705xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230706xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-06</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230706xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230707xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-07</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230707xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230708xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-08</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230708xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230709xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-09</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230709xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230710xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-10</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230710xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230711xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-11</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230711xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr20230712xf</Name>
+        <Title>Fire Danger / Risque d'incendie (NAEFS forecast) - 2023-07-12</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr20230712xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr_current</Name>
+        <Title>Fire Danger / Risque d'incendie (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>Fire Danger is a relative index of how easy it is to ignite vegetation, how difficult a fire may be to control, and how much damage a fire may do. / Le risque d'incendie est un indice relatif indiquant le niveau de facilité pour allumer un incendie de végétation, le niveau de difficulté qu'un incendie peut demander pour être contrôlé ainsi que la quantité de dommages qu'un incendie peut causer; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr</Title>
+          <Abstract>cwfis symbology for fire danger rating (fdr)</Abstract>
+          <Name>cffdrs_fdr</Name>
+          <LegendURL width="200" height="117">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fdr_current_shp</Name>
+        <Title>Current fire danger polygon</Title>
+        <Abstract>Current fire danger / Risque d'incendie actuel;&#13;
+Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/fire_danger/fire_danger_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>fdr</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-152.87909241652318" miny="36.1251666489418" maxx="-29.777540560554872" maxy="74.75251594265215"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2338164.081065" miny="-693617.7711239969" maxx="2995835.918935" maxy="2836382.228876003"/>
+        <Style>
+          <Title>cffdrs_fdr_poly</Title>
+          <Abstract>A custom style for cffdrs_fdr_poly</Abstract>
+          <Name>cffdrs_fdr_poly</Name>
+          <LegendURL width="152" height="100">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fdr_current_shp"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>ffmc_current</Name>
+        <Title>Fine Fuel Moisture Code / Indice de combustible léger (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>The Fine Fuel Moisture Code is a component of the Canadian Forest Fire Weather Index (FWI) System. It is a numeric rating of the moisture content of litter and other cured fine fuels. This code is an indicator of the relative ease of ignition and the flammability of fine fuel. / L'indice du combustible léger est une composante de la Méthode canadienne de l'Indice Forêt- Météo (IFM). Il s'agit d'une évaluation numérique de la teneur moyenne en eau de la litière et d'autres combustibles légers. Cet indice est un indicateur de la facilité relative de l'allumage ainsi que de l'inflammabilité du combustible léger; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fwi_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_ffmc</Title>
+          <Abstract>cwfis symbology for fine fuel moisture code (ffmc)</Abstract>
+          <Name>cffdrs_ffmc</Name>
+          <LegendURL width="236" height="141">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ffmc_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>firewx_scribe_fcst</Name>
+        <Title>firewx_scribe_fcst_new</Title>
+        <Abstract>SCRIBE 48 hour weather and FWI forecast at scribe station locations.</Abstract>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>firewx_scribe_fcst</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-172.74853391639496" miny="36.285066392356526" maxx="-12.46282980168619" maxy="83.00920057982007"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2322698.03550066" miny="-662912.092927479" maxx="3011665.30167772" maxy="3810393.75946683"/>
+        <Style>
+          <Title>cwfis_scribe_fcst_pnt</Title>
+          <Abstract>CWFIS symbology for scribe weather forecast locations</Abstract>
+          <Name>cwfis_scribe_fcst_pnt</Name>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=firewx_scribe_fcst"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>firewx_stns_current</Name>
+        <Title>firewx_stns_current</Title>
+        <Abstract>Current (local noon) weather and FWI calculations at weather station locations.</Abstract>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>firewx_stns_current_new</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.04074722376296" miny="21.459201875141908" maxx="-12.51527994465037" maxy="83.22764805329801"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2484547.83346562" miny="-2729075.54551085" maxx="3009498.77787459" maxy="3808323.68059133"/>
+        <Style>
+          <Title>cwfis_wx_stns</Title>
+          <Abstract>CWFIS symbology for weather stations</Abstract>
+          <Name>cwfis_wx_stns</Name>
+          <LegendURL width="101" height="80">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=firewx_stns_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fmc_current</Name>
+        <Title>Foliar Moisture Content / Humidité foliaire (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>Foliar Moisture Content (FMC) is an estimate of the water content of conifer needles. It ranges from 85% to 120% (weight of water divided by dry weight times 100). The FMC is used in determining whether or not a fire is expected to move from the ground surface into the tree crowns. It is based on latitude, longitude, and elevation. / L'humidité foliaire (HF) est une estimation du contenu en eau des aiguilles de conifères. Elle est comprise entre 85 % à 120 % (poids de l'eau divisé par le poids à sec multiplié par 100). L'HF est utilisée afin de déterminer si un incendie est censé migrer de la surface à la cime des arbres. Elle est basée sur la latitude, la longitude et l'altitude; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fmc</Title>
+          <Abstract>cwfis symbology for foliar moisture content (fmc)</Abstract>
+          <Name>cffdrs_fmc</Name>
+          <LegendURL width="225" height="187">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fmc_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>ft_current</Name>
+        <Title>Fire Type / Description d’incendie (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>Fire Type (FT) provides a general description of the fire. It is based on the Crown Fraction Burned (CFB). If the CFB is less than 0.1 (10%), then the fire is a surface fire. If the CFB is 0.9 (90%) or more, the fire is a continuous crown fire. If the CFB is between 0.1 and 0.9, the fire is an intermittent crown fire. / La description d\'incendie (DI) fournit une description générale d'un feu. Elle est basée sur la fraction consumée des cimes (FCC). Si la FCC est moindre que 0,1 (10 %), ceci signifie que l'incendie est un feu de surface. Si la FCC est de 0,9 (90 %) ou plus, l'incendie est un feu continu de cimes. Si la FCC est entre 0,1 et 0,9, l'incendie est un feu intermittent de cimes; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_ft</Title>
+          <Abstract>cwfis symbology for fire type (ft)</Abstract>
+          <Name>cffdrs_ft</Name>
+          <LegendURL width="98" height="92">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ft_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>fwi_current</Name>
+        <Title>Fire Weather Index / Indice Forêt-Météo (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>The Fire Weather Index is a component of the Canadian Forest Fire Weather Index (FWI) System. It is a numeric rating of fire intensity. It combines the Initial Spread Index and the Buildup Index. It is suitable as a general index of fire danger throughout the forested areas of Canada. / L'indice Forêt-Météo est une composante de la Méthode canadienne de l'Indice Forêt-Météo (IFM). Il s'agit d'une classification numérique de l'intensité du feu. Il combine l'Indice de propagation initiale ainsi que les Indices du combustible disponible. Il s'inscrit comme un indice général du risque d'incendie dans toutes les régions boisées du Canada; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fwi_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_fwi</Title>
+          <Abstract>cwfis symbology for fire weather index (fwi)</Abstract>
+          <Name>cffdrs_fwi</Name>
+          <LegendURL width="247" height="141">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=fwi_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>gu_current</Name>
+        <Title>Current green-up</Title>
+        <Abstract>Current green-up of the forest calculated from normalized difference vegetation index (NDVI) data. The green-up layer is in the Fire Behaviour Prediction (FBP) calculation for the aspen (D-1), boreal mixwood (M-1/M-2) and dead balsam fir mixedwood (M-3/M-4) fuel types. A value of 0 represents leafless while 1 represents green;&#13;
+Metadata / Métadonnées: https://cwfis.cfs.nrcan.gc.ca/downloads/greenup/Greenup_metadata_NAP_ISO_19115_2003.pdf</Abstract>
+        <KeywordList>
+          <Keyword>WCS</Keyword>
+          <Keyword>GeoTIFF</Keyword>
+          <Keyword>gu_current</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-154.60136356107628" miny="35.591169899017615" maxx="-28.349438029393653" maxy="75.32000523534346"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2387000.0" miny="-740000.0" maxx="3043000.0" maxy="2900000.0"/>
+        <Style>
+          <Title>cffdrs_greenup</Title>
+          <Abstract>cwfis symbology for greenup</Abstract>
+          <Name>cffdrs_greenup</Name>
+          <LegendURL width="88" height="45">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=gu_current"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Title>cffdrs_greenup</Title>
+          <Abstract>cwfis symbology for greenup</Abstract>
+          <Name>cffdrs_greenup</Name>
+          <LegendURL width="88" height="45">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=gu_current&amp;style=cffdrs_greenup"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230630xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-06-30</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230630xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230701xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-01</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230701xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230702xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-02</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230702xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230703xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-03</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230703xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230704xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-04</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230704xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230705xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-05</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230705xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230706xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-06</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230706xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230707xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-07</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230707xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230708xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-08</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230708xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230709xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-09</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230709xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230710xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-10</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230710xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230711xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-11</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230711xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi20230712xf</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (NAEFS forecast) - 2023-07-12</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi20230712xf"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hfi_current</Name>
+        <Title>Head Fire Intensity / Intensité du front de l’incendie (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>Head Fire Intensity (HFI) is the predicted intensity, or energy output, of the fire at the front or head of the fire. It has become one of the standard gauges by which fire managers estimate the difficulty of controlling a fire and select appropriate suppression methods. It is measured in kilowatts per metre of fire front and is based on the Rate of Spread and the Total Fuel Consumption. / L'intensité du front (IF) est l'intensité prédite, ou la production d'énergie, d'un incendie au front ou à la tête d'un feu. Cet aspect est devenu un des indicateurs étalon en vertu duquel les gestionnaires des incendies de forêt évaluent la difficulté de contrôler un incendie et choisissent des méthodes appropriées de suppression. Elle est mesurée en kilowatts par mètre du front et est basée sur la vitesse de propagation ainsi que la combustion totale du combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_hfi</Title>
+          <Abstract>cwfis symbology for head fire intensity (hfi)</Abstract>
+          <Name>cffdrs_hfi</Name>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hfi_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>hotspots_last24hrs</Name>
+        <Title>hotspots_last24hrs</Title>
+        <Abstract>Hotspots for the last 24 hours / Depuis les derniers 24 heures; &#13;
+Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/hotspots/fireM3_hotspots_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>hotspots_last24hrs_new</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-164.1983957688663" miny="21.788933412939414" maxx="-44.590178766288105" maxy="77.77977083751428"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2879013.55124197" miny="-2733637.28719088" maxx="1531073.34757788" maxy="3144788.6347509"/>
+        <Style>
+          <Title>cwfis_hotspots_last24hrs3cls</Title>
+          <Abstract>Last 24 hour hotspots displayed in three classes (0-6, 6-12, 12-24 hours)</Abstract>
+          <Name>cwfis_hotspots_last24hrs3cls_v3</Name>
+          <LegendURL width="112" height="60">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hotspots_last24hrs"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Title>hotspots_last24hrs_wtxt</Title>
+          <Abstract>Custom symbology for current days hotspots</Abstract>
+          <Name>hotspots_last24hrs_wtxt</Name>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hotspots_last24hrs&amp;style=hotspots_last24hrs_wtxt"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Title>cwfis_hotspots_last24hrs3cls</Title>
+          <Abstract>Last 24 hour hotspots displayed in three classes (0-6, 6-12, 12-24 hours)</Abstract>
+          <Name>cwfis_hotspots_last24hrs3cls_v3</Name>
+          <LegendURL width="112" height="60">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=hotspots_last24hrs&amp;style=cwfis_hotspots_last24hrs3cls_v3"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>isi_current</Name>
+        <Title>Initial Spread Index / Indice de propagation initiale (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>The Initial Spread Index is a component of the Canadian Forest Fire Weather Index (FWI) System. It is a numeric rating of the expected rate of fire spread. It combines the effects of wind and the Fine Fuel Moisture Code on rate of spread without the influence of variable quantities of fuel. / L'Indice de propagation initiale est une composante de la Méthode canadienne de l'Indice Forêt-Météo (IFM). Il s'agit d\'une évaluation numérique du taux prévu de propagation du feu. Il combine les effets du vent et de l'indice du combustible léger sur le taux de propagation sans l'influence de quantités variables de combustible; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fwi_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_isi</Title>
+          <Abstract>cwfis symbology for initial spread index (isi)</Abstract>
+          <Name>cffdrs_isi</Name>
+          <LegendURL width="257" height="141">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=isi_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>m3_polygons_current</Name>
+        <Title>m3_polygons_current</Title>
+        <Abstract>Fire Perimeter Estimate. Season-to-date buffered hotpots / Estimation du périmètre de l'incendie. Superficies des points chauds saisonniers; &#13;
+Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/hotspots/fireM3_buffered_hotspots_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>fire perimeter estimates</Keyword>
+          <Keyword>hotspot buffer</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-180.0" miny="30.220259209268296" maxx="180.0" maxy="87.46090453011479"/>
+        <BoundingBox SRS="EPSG:3978" minx="-3753241.794707766" miny="-1015910.8243446802" maxx="3836041.94022178" maxy="4290855.707216153"/>
+        <DataURL>
+          <Format>text/plain</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/downloads/hotspots/"/>
+        </DataURL>
+        <Style>
+          <Title>cwfis_m3_polygons</Title>
+          <Abstract>CWFIS custom symbology for hotspot buffered polygons</Abstract>
+          <Name>cwfis_m3_polygons</Name>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=m3_polygons_current"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Title>cwfis_m3_polygons</Title>
+          <Abstract>CWFIS custom symbology for hotspot buffered polygons</Abstract>
+          <Name>cwfis_m3_polygons</Name>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=m3_polygons_current&amp;style=cwfis_m3_polygons"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>nbac_2019_r9_20200703</Name>
+        <Title>National Burned Area Composite - 2019</Title>
+        <Abstract>The National Burned Area Composite (NBAC) is a GIS database and system that calculates the area of forest burned on a national scale for each year since 1986.&#13;
+Metadata / Métadonnées: &#13;
+https://cwfis.cfs.nrcan.gc.ca/downloads/nbac/NBAC_metadata_NAP_ISO_19115_2003.pdf</Abstract>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>nbac_2019_r9_20200703</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-148.02449459446112" miny="42.88752640746161" maxx="-40.149326763146014" maxy="73.49838952802583"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2185618.1328000017" miny="-160456.4904000014" maxx="2315860.3970999965" maxy="2669869.75"/>
+        <Style>
+          <Title>nbac_polys_fires_by_year</Title>
+          <Abstract>Sample symbology for NBAC burned area polygons classified by year</Abstract>
+          <Name>nbac_polys_fires_by_year</Name>
+          <LegendURL width="54" height="600">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=nbac_2019_r9_20200703"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>pc_current</Name>
+        <Title>Current percentage of grass curing</Title>
+        <Abstract>Current percentage of grass curing calculated from normalized difference vegetation index (NDVI) data. This layer is used to calculate Fire Behaviour Prediction (FBP) in the Grassland O-1 fuel type. A value of 0 represents normalized "green" grass while a value of 100 represents fully cured grass. Standing and matte cured grass are not differentiated.&#13;
+Metadata / Métadonnées: https://cwfis.cfs.nrcan.gc.ca/downloads/pcuring/Percent_curing_metadata_NAP_ISO_19115_2003.pdf</Abstract>
+        <KeywordList>
+          <Keyword>WCS</Keyword>
+          <Keyword>GeoTIFF</Keyword>
+          <Keyword>pc_current</Keyword>
+        </KeywordList>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-154.60136356107628" miny="35.591169899017615" maxx="-28.349438029393653" maxy="75.32000523534346"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2387000.0" miny="-740000.0" maxx="3043000.0" maxy="2900000.0"/>
+        <Style>
+          <Title>cffdrs_pcuring</Title>
+          <Abstract>cwfis symbology for percent curing</Abstract>
+          <Name>cffdrs_pcuring</Name>
+          <LegendURL width="54" height="135">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=pc_current"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Title>cffdrs_pcuring</Title>
+          <Abstract>cwfis symbology for percent curing</Abstract>
+          <Name>cffdrs_pcuring</Name>
+          <LegendURL width="54" height="135">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=pc_current&amp;style=cffdrs_pcuring"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>precip_current</Name>
+        <Title>Precipitation / Précipitations (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>This map displays 24-hour accumulated precipitation at local noon. Because Canada covers several time zones, local noon occurs at different times in different parts of the country. Precipitation values are interpolated between weather stations. Precipitation amounts can vary significantly over short distances; therefore, this map is accurate only at weather station locations and gives a general indication of precipitation conditions elsewhere. / Cette carte montre les accumulations de précipitations des 24 dernières heures à midi, heure locale. Puisque le Canada comprend plusieurs fuseaux horaires, le midi, heure locale, se produit à différentes heures dans les diverses régions du pays. Les valeurs concernant les précipitations sont interpolées entre les stations météorologiques. Les quantités de précipitations peuvent varier considérablement sur de courtes distances; par conséquent, cette carte présente des valeurs qui sont exactes seulement à l'emplacement des stations météorologiques et indique de façon générale les conditions des précipitations aux autres endroits; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/wx_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_precip</Title>
+          <Abstract>cwfis symbology for precipitation</Abstract>
+          <Name>cffdrs_precip</Name>
+          <LegendURL width="225" height="164">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=precip_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>rh_current</Name>
+        <Title>Relative humidity / Humidité relative (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>This map displays conditions at local noon. Because Canada covers several time zones, local noon occurs at different times in different parts of the country. Relative humidity (RH) values are determined by interpolating the mixing ratio (the ratio of water vapour to dry air) between weather stations, then calculating the RH at each grid cell using temperature and pressure grids. / Cette carte montre les conditions à midi, heure locale. Puisque le Canada comprend plusieurs fuseaux horaires, le midi, heure locale, se produit à différentes heures dans les diverses régions du pays. Les valeurs de l'humidité relative (HR) sont déterminées en interpolant le rapport de mélange (rapport de la masse de vapeur d'eau à la masse d'air sec) entre les stations météorologiques, puis en calculant l'HR pour chaque cellule de la grille au moyen des grilles de température et de pression; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/wx_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_rh</Title>
+          <Abstract>cwfis symbology for relative humidity (rh)</Abstract>
+          <Name>cffdrs_rh</Name>
+          <LegendURL width="204" height="140">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=rh_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>ros_current</Name>
+        <Title>Rate of Spread / Vitesse de propagation (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>Rate of Spread (ROS) is the predicted speed of the fire at the front or head of the fire (where the fire moves fastest), and takes into account both crowning and spotting. It is measured in metres per minute and is based on the Fuel Type, Initial Spread Index, Buildup Index, and several fuel-specific parameters such as phenological state (leafless or green) in deciduous trees, crown base height in coniferous trees, and percent curing in grasses. / La vitesse de propagation (VP est la vitesse prévue d'un incendie au front ou à la tête d'un feu (là où le feu progresse le plus rapidement) et elle comprend à la fois les feux de cime ainsi que ceux qui se disséminent. Elle est mesurée en mètres par minute et est basée sur le type de combustible, l'indice de propagation initiale, l'indice du combustible disponible ainsi que de nombreux paramètres spécifiques aux combustibles tels que l'état phénologique (aphylle ou vert) chez les feuillus, la hauteur à la base de la cime chez les conifères ainsi que le pourcentage de fanage chez les graminées; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_ros</Title>
+          <Abstract>cwfis symbology for rate of spread (ros)</Abstract>
+          <Name>cffdrs_ros</Name>
+          <LegendURL width="225" height="164">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ros_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>sfc_current</Name>
+        <Title>Surface Fuel Consumption / Combustion des combustibles de surface (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>Surface Fuel Consumption (SFC) is the predicted weight of fuel consumed by the fire on the forest floor. It is measured in kilograms per square metre of ground surface and is based on the Fuel Type, the Buildup Index, and the Fine Fuel Moisture Code. / La combustion des combustibles de surface (CCS) est le poids prévu du combustible consumé par le feu sur le tapis forestier. Il est mesuré en kilogrammes par mètre carré de surface du sol et est basée sur le type de combustible, l'indice du combustible disponible ainsi que l'indice du combustible léger; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_sfc</Title>
+          <Abstract>cwfis colour classes for surface fuel consumption (sfc)</Abstract>
+          <Name>cffdrs_sfc</Name>
+          <LegendURL width="215" height="163">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=sfc_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>temp_current</Name>
+        <Title>Temperature / Température (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>This map displays conditions at local noon. Because Canada covers several time zones, local noon occurs at different times in different parts of the country. Temperature values are interpolated between weather stations, then adjusted for elevation. This adjustment is based on the assumption that the temperature decreases at a rate of 6.5°C per kilometre of elevation increase. / Cette carte montre les conditions à midi, heure locale. Puisque le Canada comprend plusieurs fuseaux horaires, le midi, heure locale, se produit à différentes heures dans les diverses régions du pays. Les valeurs des températures sont interpolées entre les stations météorologiques, puis ajustées en fonction de l'altitude. Cet ajustement est fondé sur l'hypothèse que la température diminue de 6,5°C par kilomètre d'altitude; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/wx_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_temp</Title>
+          <Abstract>cwfis colour classes for temperature (temp)</Abstract>
+          <Name>cffdrs_temp</Name>
+          <LegendURL width="215" height="163">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=temp_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>tfc_current</Name>
+        <Title>Total Fuel Consumption / Combustion totale de combustible (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>Total Fuel Consumption (TFC) is the predicted weight of fuel consumed by the fire both on the forest floor and in the crowns of the trees. It is measured in kilograms per square metre of ground surface and is based on Foliar Moisture Content, Surface Fuel Consumption, and Rate of Spread. / La combustion totale de combustible (CTC) est le poids prévu du combustible consumé sur le tapis forestier ainsi que dans les cimes des arbres. Il est mesuré en kilogrammes par mètre carré de surface de sol et est basée sur l'humidité foliaire, la consumation des combustibles de surface et la vitesse de propagation; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/fbp_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_tfc</Title>
+          <Abstract>cwfis colour classes for total fuel consumption (tfc)</Abstract>
+          <Name>cffdrs_tfc</Name>
+          <LegendURL width="225" height="164">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=tfc_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>wdir_current</Name>
+        <Title>Wind Direction / Direction du vent (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>This map displays conditions at local noon. Because Canada covers several time zones, local noon occurs at different times in different parts of the country. The arrows indicate wind direction. Wind speed and direction values are broken into west-east and north-south components for interpolation between weather stations. / Cette carte montre les conditions à midi, heure locale. Puisque le Canada comprend plusieurs fuseaux horaires, le midi, heure locale, se produit à différentes heures dans les diverses régions du pays. Les flèches indiquent la direction du vent. Les valeurs de la vitesse et de la direction du vent sont divisées en composantes est ouest et nord sud aux fins d'interpolation entre les stations météorologiques; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/wx_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_wdir</Title>
+          <Abstract>cwfis symbology for wind direction (wdir)</Abstract>
+          <Name>cffdrs_wdir</Name>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=wdir_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>ws_current</Name>
+        <Title>Wind Speed / Vitesse du vent (SCRIBE forecast) - 2023-06-30</Title>
+        <Abstract>This map displays conditions at local noon. Because Canada covers several time zones, local noon occurs at different times in different parts of the country. The arrows indicate wind direction. Wind speed and direction values are broken into west-east and north-south components for interpolation between weather stations. / Cette carte montre les conditions à midi, heure locale. Puisque le Canada comprend plusieurs fuseaux horaires, le midi, heure locale, se produit à différentes heures dans les diverses régions du pays. Les flèches indiquent la direction du vent. Les valeurs de la vitesse et de la direction du vent sont divisées en composantes est ouest et nord sud aux fins d'interpolation entre les stations météorologiques; 
+&#13;
+		Metadata / Métadonnées: http://cwfis.cfs.nrcan.gc.ca/downloads/cffdrs/wx_grids_metadata_NAP_ISO_19115_2003.xml</Abstract>
+        <KeywordList/>
+        <SRS>EPSG:3978</SRS>
+        <LatLonBoundingBox minx="-174.2769067482709" miny="35.84089757528624" maxx="-11.4518732230292" maxy="83.39788341810149"/>
+        <BoundingBox SRS="EPSG:3978" minx="-2378164.081065" miny="-707617.7711239969" maxx="3039835.918935" maxy="3854382.228876003"/>
+        <Style>
+          <Title>cffdrs_ws</Title>
+          <Abstract>cwfis style for wind speed (ws)</Abstract>
+          <Name>cffdrs_ws</Name>
+          <LegendURL width="225" height="164">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms?request=GetLegendGraphic&amp;version=1.1.1&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ws_current"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+    </Layer>
+  </Capability>
+</WMT_MS_Capabilities>
