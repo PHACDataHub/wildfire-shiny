@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y \
     libudunits2-dev \
     libgdal-dev \
     libgeos-dev \
-    libproj-dev \
+    libproj-dev 
+    
 # install R packages required 
 # Change the packages list to suit your needs
 RUN R -e 'install.packages(c(\
