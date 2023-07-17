@@ -33,7 +33,7 @@ RUN R -e 'install.packages(c(\
 RUN R -e "install.packages('sf', type = 'source', repos = 'https://cran.r-project.org/')"          
 
 # copy the app directory into the image
-COPY ./shiny-app/* /srv/shiny-server/
+COPY ./shiny-app/ /srv/shiny-server/
 
 # make all app files readable (solves issue when dev in Windows, but building in Ubuntu)
 RUN chmod -R 755 /srv/shiny-server/
