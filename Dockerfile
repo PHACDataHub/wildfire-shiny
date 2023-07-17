@@ -6,33 +6,30 @@ RUN apt-get update && apt-get install -y \
     libcurl4-gnutls-dev \
     libssl-dev 
 
-# sf library dependencies
+RUN apt -y install software-properties-common dirmngr apt-transport-https lsb-release ca-certificates
+
+# Install the most up-to-date dependencies
+RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+
 RUN apt-get update && apt-get install -y \
     libudunits2-dev \
     libgdal-dev \
     libgeos-dev \
     libproj-dev \
-    gdal-bin \
-    libsqlite3-dev
-
-
 # install R packages required 
 # Change the packages list to suit your needs
-
 RUN R -e 'install.packages(c(\
               "shiny", \
               "shinydashboard", \
               "shiny.i18n", \
-              "sf", \
               "maps", \
               "dplyr", \
               "leaflet", \
-              "DT", \
-              "Rcpp" \
-            ), \
-            repos="https://packagemanager.rstudio.com/cran/__linux__/focal/2023-07-01"\
-          )'
-          
+              "DT" \
+            ))'
+
+# Install sf
+RUN R -e "install.packages('sf', type = 'source', repos = 'https://cran.r-project.org/')"          
 
 # copy the app directory into the image
 COPY ./shiny-app/* /srv/shiny-server/
