@@ -4,7 +4,11 @@ FROM rocker/shiny:4.3.0
 # system libraries
 RUN apt-get update && apt-get install -y \
     libcurl4-gnutls-dev \
-    libssl-dev
+    libssl-dev \
+    libudunits2-dev \
+    libproj-dev \
+    libgeos-dev \
+    libgdal-dev 
   
 
 # install R packages required 
@@ -20,9 +24,9 @@ RUN R -e 'install.packages(c(\
               "leaflet", \
               "DT" \
             ), \
-            repos="https://packagemanager.rstudio.com/cran/__linux__/focal/2023-07-17"\
+            repos="https://packagemanager.rstudio.com/cran/__linux__/focal/2023-07-01"\
           )'
-
+          
 
 # copy the app directory into the image
 COPY ./shiny-app/* /srv/shiny-server/
