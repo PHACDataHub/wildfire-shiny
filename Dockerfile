@@ -4,12 +4,21 @@ FROM rocker/shiny:4.3.0
 # system libraries
 RUN apt-get update && apt-get install -y \
     libcurl4-gnutls-dev \
-    libssl-dev \
+    libssl-dev 
+
+# add UbuntuGIS repository
+RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+
+# update package lists
+RUN apt-get update
+
+# system libraries
+RUN apt-get update && apt-get install -y \
     libudunits2-dev \
-    libproj-dev \
+    libgdal-dev \
     libgeos-dev \
-    libgdal-dev 
-  
+    libproj-dev \
+    libsqlite0-dev
 
 # install R packages required 
 # Change the packages list to suit your needs
@@ -34,7 +43,7 @@ COPY ./shiny-app/* /srv/shiny-server/
 # make all app files readable (solves issue when dev in Windows, but building in Ubuntu)
 RUN chmod -R 755 /srv/shiny-server/
 
-# listen on port 80 instead of default
+ listen on port 80 instead of default
 RUN sed -i -e 's/\blisten 3838\b/listen 80/g' /etc/shiny-server/shiny-server.conf
 # run app
 CMD ["/usr/bin/shiny-server"]
