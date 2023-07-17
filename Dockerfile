@@ -28,6 +28,7 @@ RUN R -e 'install.packages(c(\
               "dplyr", \
               "leaflet", \
               "DT" \
+              "Rcpp" \
             ), \
             repos="https://packagemanager.rstudio.com/cran/__linux__/focal/2023-07-01"\
           )'
