@@ -6,19 +6,20 @@ RUN apt-get update && apt-get install -y \
     libcurl4-gnutls-dev \
     libssl-dev 
 
+# add add-apt-repository capability
 RUN apt -y install software-properties-common dirmngr apt-transport-https lsb-release ca-certificates
 
-# Install the most up-to-date dependencies
+# Add the UbuntuGIS Unstable for proper depencies for `sf` R package
 RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 
+# dependencies for `sf` R package
 RUN apt-get update && apt-get install -y \
     libudunits2-dev \
     libgdal-dev \
     libgeos-dev \
     libproj-dev 
     
-# install R packages required 
-# Change the packages list to suit your needs
+# grabs pre-compiled binaries from Posit Package Manager
 RUN R -e 'install.packages(c(\
               "shiny", \
               "shinydashboard", \
@@ -29,7 +30,7 @@ RUN R -e 'install.packages(c(\
               "DT" \
             ))'
 
-# Install sf
+# need to install sf from cran
 RUN R -e "install.packages('sf', type = 'source', repos = 'https://cran.r-project.org/')"          
 
 # copy the app directory into the image
