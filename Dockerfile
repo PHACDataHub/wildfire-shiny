@@ -16,8 +16,8 @@ RUN R -e 'install.packages(c(\
               "shiny.i18n", \
               "sf", \
               "maps", \
-              "dplyr" \
-              "leaflet" \
+              "dplyr", \
+              "leaflet", \
               "DT" \
             ), \
             repos="https://packagemanager.rstudio.com/cran/__linux__/focal/2023-07-17"\
