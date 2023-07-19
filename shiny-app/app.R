@@ -6,6 +6,7 @@ library(maps)
 library(dplyr)
 library(leaflet)
 library(DT)
+library(leafgl)
 
 
 
@@ -185,11 +186,6 @@ server <- function(input, output, session) {
   
   
   output$plot_leaf <- renderLeaflet({
-    top_cities <- cities_filtered() %>%
-      st_as_sf() %>%
-      arrange(desc(pop)) %>%
-      top_n(input$n_cities, wt = pop) %>%
-      st_transform(crs = '+proj=longlat +datum=WGS84')
     
     color_palette <- colorFactor(
       palette = c("blue", "green", "yellow", "orange", "red"),
@@ -201,12 +197,9 @@ server <- function(input, output, session) {
               lat = 60.0,
               zoom = 3) %>%
       addProviderTiles(providers$CartoDB.Positron) %>%
-      addPolygons(
+      addGlPolygons(
         data = fire,
         fillColor = ~ color_palette(GRIDCODE),
-        color = "darkgrey",
-        weight = 1,
-        opacity = 1,
         fillOpacity = 0.7
       ) %>%
       addLegend(
@@ -221,14 +214,34 @@ server <- function(input, output, session) {
           i18n$t("extreme")
         ),
         opacity = 0.7
-      ) %>%
-      addCircleMarkers(
+      )
+  })
+  
+  
+  # Update circles based on filter selection
+  
+  observe({
+    top_cities <- cities_filtered() %>%
+      st_as_sf() %>%
+      arrange(desc(pop)) %>%
+      top_n(input$n_cities, wt = pop) %>%
+      st_transform(crs = '+proj=longlat +datum=WGS84')
+    
+    leafletProxy("plot_leaf") %>%
+      clearGroup("cities_group") %>%
+      addCircles(
         data = top_cities,
         color = "black",
-        weight = 1,
-        radius = 2,
-        fillOpacity = 1,
-        label = ~ paste0(name)
+        group = "cities_group",
+        weight = 5,
+        radius = 1000,
+        fillOpacity = 0.7,
+        label = ~ paste0(name),
+        labelOptions = labelOptions(
+          style = list(padding = "3px 8px"),
+          textsize = "14px", 
+          distance = 50
+        )
       )
   })
   
