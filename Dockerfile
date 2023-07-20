@@ -27,7 +27,8 @@ RUN R -e 'install.packages(c(\
               "maps", \
               "dplyr", \
               "leaflet", \
-              "DT" \
+              "DT", \
+              "leafgl" \
             ))'
 
 # need to install sf from cran
@@ -38,9 +39,6 @@ COPY ./shiny-app/ /srv/shiny-server/
 
 # make all app files readable (solves issue when dev in Windows, but building in Ubuntu)
 RUN chmod -R 755 /srv/shiny-server/
-
-# listen on port 80 instead of default
-RUN sed -i -e 's/\blisten 3838\b/listen 80/g' /etc/shiny-server/shiny-server.conf
 
 # run app
 CMD ["/usr/bin/shiny-server"]
