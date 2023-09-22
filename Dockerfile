@@ -1,5 +1,5 @@
 # get shiny server and a version of R from the rocker project
-FROM rocker/shiny:4.3.0
+FROM rocker/shiny-verse:latest
 
 # system libraries
 RUN apt-get update && apt-get install -y \
@@ -34,11 +34,19 @@ RUN R -e 'install.packages(c(\
 # need to install sf from cran
 RUN R -e "install.packages('sf', type = 'source', repos = 'https://cran.r-project.org/')"          
 
-# copy the app directory into the image
-COPY ./shiny-app/ /srv/shiny-server/
+# clean up
+RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
-# make all app files readable (solves issue when dev in Windows, but building in Ubuntu)
-RUN chmod -R 755 /srv/shiny-server/
+# Copy shiny app into the Docker image
+COPY app /srv/shiny-server/
+
+# Make the ShinyApp available at port 5000
+EXPOSE 5000
+
+# Copy shiny app execution file into the Docker image
+COPY shiny-server.sh /usr/bin/shiny-server.sh
+
+USER shiny
 
 # run app
 CMD ["/usr/bin/shiny-server"]
