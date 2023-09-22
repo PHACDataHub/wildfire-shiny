@@ -40,8 +40,7 @@ RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 # Copy shiny app into the Docker image
 COPY app /srv/shiny-server/
 
-# Make the ShinyApp available at port 5000
-EXPOSE 5000
+RUN rm /srv/shiny-server/index.html
 
 # Copy shiny app execution file into the Docker image
 COPY shiny-server.sh /usr/bin/shiny-server.sh
