@@ -1,5 +1,8 @@
 library(shiny)
 library(shinydashboard)
+library(shinydashboardPlus)
+library(fresh)
+library(shinyWidgets)
 library(shiny.i18n)
 library(sf)
 library(maps)
@@ -7,6 +10,7 @@ library(dplyr)
 library(leaflet)
 library(DT)
 library(leafgl)
+
 
 
 
@@ -78,24 +82,47 @@ i18n$use_js()
 
 
 ui <- dashboardPage(
-  dashboardHeader(title = i18n$t("Fire Risk")),
+  
+  freshTheme = create_theme(
+    adminlte_color(
+      light_blue = "#434C5E"),
+    adminlte_sidebar(
+      dark_bg = "#434C5E"
+    ),
+    adminlte_global(
+      content_bg = "#f9fafb"
+    )
+  ),
+  
+  dashboardHeader(title = tagList(
+    span(class = "logo-lg", icon("fire"),i18n$t("Fire Risk")),
+    span(class = "logo-icon", icon("fire"))),
+    tags$li(
+      class = 'dropdown',
+      div(
+        style = "margin: 8px;",
+        dropdownButton(
+          label = i18n$t("Language"),
+          icon = icon("language"),
+          status = "primary",
+          circle = FALSE,
+          right = TRUE,
+          width = '180px',
+          shiny.i18n::usei18n(i18n),
+          selectInput('selected_language',
+                      i18n$t("Select language"),
+                      choices = i18n$get_languages(),
+                      selected = i18n$get_key_translation()
+          )
+        )
+      ))
+  ),
   
   dashboardSidebar(sidebarMenu(
     menuItem(
-      i18n$t("Language"),
-      icon = icon("language"),
-      shiny.i18n::usei18n(i18n),
-      selectInput(
-        'selected_language',
-        i18n$t("Select language"),
-        choices = i18n$get_languages(),
-        selected = i18n$get_key_translation()
-      )
-    ),
-    menuItem(
       i18n$t("Fire Risk"),
       tabName = "fire_risk",
-      icon = icon("fire")
+      icon = icon("fire-extinguisher")
     )
   )),
   
