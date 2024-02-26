@@ -72,16 +72,18 @@ subset_data <- st_transform(subset_data, crs=st_crs("+proj=longlat +datumWGS84")
 
 filtered_data <- subset_data
 # filtered_data <- subset_data[subset_data$Ethnocultural_Composition_Quintiles >= 4,]
-filtered_fire <- fire[fire$GRIDCODE >= 4,]
+filtered_fire <- fire#[fire$GRIDCODE >= 1,]
+
+filtered_fire$GRIDCODE <- filtered_fire$GRIDCODE + 1
 
 # make all fire locations larger by tolerance
 # this makes the small regions in the cities connect together
 tol <- 10000 # meters
 filtered_fire <- st_make_valid(filtered_fire)
-filtered_fire <- st_buffer(filtered_fire, dist=tol)
+# filtered_fire <- st_buffer(filtered_fire, dist=tol)
 
 # join together connected polygons and simplify
-filtered_fire <- st_union(filtered_fire)
+# filtered_fire <- st_union(filtered_fire)
 filtered_fire <- st_sf(filtered_fire, drop=FALSE)
 filtered_fire <- st_make_valid(filtered_fire)
 filtered_fire <- st_simplify(filtered_fire, dTolerance = 100)
@@ -97,32 +99,41 @@ filtered_data <- filtered_data[mask, ]
 
 #### PLOTTING
 
-generate_map <- function(data, column, filter=4) {
-  # 1 is least deprived, 5 is most deprived
-  color_palette <- colorFactor(
-      palette = c("blue", "green", "yellow", "orange", "red"),
-      domain = data[[column]])
+generate_map <- function(data, column, filter=4, fire_filter=4) {
 
   data <- data[data[[column]] >= filter,]
+  filtered_fire <- filtered_fire[filtered_fire$GRIDCODE >= fire_filter,]
+
+  # 1 is least deprived, 5 is most deprived
+  color_palette <- colorFactor(
+      palette = "Blues",
+      domain = data[[column]])
+
+  fire_palette <- colorFactor(
+      palette = "Reds",
+      domain = filtered_fire$GRIDCODE)
 
   leaflet_data <- leaflet(data=data, options=leafletOptions(preferCanvas=TRUE)) %>%
                   addProviderTiles("OpenStreetMap.Mapnik", options=providerTileOptions(updateWhenZooming=FALSE, updateWhenIdle = TRUE)) %>%
-                      addPolygons(
-                      data = filtered_fire,
-                      fillOpacity = 0.7,
-                      color="black", 
-                      weight=1,
-                      label="Smoke (placeholder)"
-                      )%>%
+                  addPolygons(
+                  data = filtered_fire,
+                  fillColor=~fire_palette(filtered_fire$GRIDCODE),
+                  fillOpacity = 0.7,
+                  color="black",
+                  weight=1,
+                  )%>%
                   addPolygons(data=data, fillColor=~color_palette(data[[column]]),
                   fillOpacity=0.7,
                   color="white",
                   weight=1) %>%
-                  addLegend(position="bottomright",
-                  values=~data[[column]],
-                  title=column,
-                  colors = c("black", "blue", "green", "yellow", "orange", "red"),
-                  labels=c("Smoke (placeholder)", "1 - Least Deprived", "2", "3", "4", "5 - Most Deprived"))
+                  addLegend(position="bottomright", 
+                            values=~data[[column]],
+                            pal = color_palette,
+                            title=column) %>%
+                  addLegend(position="bottomright", 
+                            values=~filtered_fire$GRIDCODE,
+                            pal = fire_palette,
+                            title="Smoke Risk (Placeholder)")
 }
 
 var1 <- "Residential_Instability_Quintiles"
@@ -131,7 +142,7 @@ var3 <- "Ethnocultural_Composition_Quintiles"
 var4 <- "SituationalVulnerability_Quintiles"
 
 start_time <- Sys.time()
-map <- generate_map(filtered_data, var4, filter=4)
+map <- generate_map(filtered_data, var3, filter = 4, fire_filter = 4)
 map
 
 end_time <- Sys.time()
