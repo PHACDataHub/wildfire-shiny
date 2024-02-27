@@ -140,13 +140,15 @@ generate_map <- function(data, column) {
       palette = "Blues",
       domain = data$GRIDCODE)
 
-  data <- data[data$danger_scale >= 8,]
-  data <- data[data[[column]] >= 3,]
-  data <- data[data$GRIDCODE >= 3,]
+  data <- data[data$danger_scale >= 6,]
+  data <- data[data[[column]] >= 2,]
+  data <- data[data$GRIDCODE >= 2,]
+
+  data[is.na(data)] <- 0
 
   leaflet_data <- leaflet(data=data, options=leafletOptions(preferCanvas=TRUE)) %>%
                   addProviderTiles("OpenStreetMap.Mapnik", options=providerTileOptions(updateWhenZooming=FALSE, updateWhenIdle = TRUE)) %>%
-                  addPolygons(data=data, fillColor=~color_palette(data$danger_scale),
+                  addPolygons(data=data, fillColor=rgb(data[[column]]/5, 0, data$GRIDCODE/5),
                   fillOpacity=0.7,
                   color="white",
                   weight=1)
@@ -160,9 +162,9 @@ map <- generate_map(joined, var)
 map
 
 
-ggplot(test_data, aes(x=x, y=y, fill=z)) +
+ggplot(test_data, aes(x=x, y=y, fill=rgb(x/5, 0, y/5))) +
   geom_tile(color="white") +
-  scale_fill_brewer(palette="Reds") +
+  scale_fill_identity() +
   theme_minimal() +
   labs(x=var, y="Smoke Level (Placeholder)")
 
