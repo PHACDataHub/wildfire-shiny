@@ -34,7 +34,10 @@ RUN R -e 'install.packages(c(\
             "dplyr", \
             "leaflet", \
             "DT", \
-            "leafgl" \
+            "leafgl", \
+            "shinydashboardPlus" ,\
+            "fresh", \
+            "shinyWidgets" \
         ))'
 
 # need to install sf from cran
@@ -45,5 +48,5 @@ RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
 COPY . /opt/services/shinyapp/src
 
-EXPOSE 8100
-CMD R -e "shiny::runApp(appDir='shinyapp', port=8100, host='0.0.0.0')"
+EXPOSE 8080
+CMD R -e "shiny::runApp(appDir='shinyapp', port=8080, host='0.0.0.0')"
