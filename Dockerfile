@@ -30,14 +30,17 @@ RUN R -e 'install.packages(c(\
             "shiny", \
             "shinydashboard", \
             "shiny.i18n", \
+            "shinyWidgets", \
+            "shinyjs", \
+            "fresh", \
             "maps", \
-            "dplyr", \
             "leaflet", \
             "DT", \
             "leafgl", \
-            "shinydashboardPlus" ,\
-            "fresh", \
-            "shinyWidgets" \
+            "rmapshaper", \
+            "mapview", \
+            "httpuv", \
+            "htmlwidgets" \
         ))'
 
 # need to install sf from cran

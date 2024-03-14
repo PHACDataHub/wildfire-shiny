@@ -1,212 +1,170 @@
 library(shiny)
-library(shinydashboard)
-library(shinydashboardPlus)
-library(fresh)
 library(shinyWidgets)
-library(shiny.i18n)
+library(shinythemes)
+library(tidyverse)
+library(shinyjs)
+library(sf)
+library(data.table)
+library(fresh)
 library(sf)
 library(maps)
-library(dplyr)
 library(leaflet)
 library(DT)
 library(leafgl)
+library(rmapshaper)
+library(mapview)
+library(httpuv)
+library(htmlwidgets)
+
+#setup app reload
+jscode <- "shinyjs.reload = function() { location.reload(); }"
+
+js <- HTML("
+           function doReload(tab_index) {
+              let loc = window.location;
+              let params = new URLSearchParams(loc.search);
+              params.set('tab_index', tab_index);
+              loc.replace(loc.origin + loc.pathname + '?' + params.toString());
+           }")
+
+
+# Read in pre-processed data
+filtered_data <- read_rds("./data/filtered_data.shp")
+filtered_fire <- read_rds("./data/filtered_fire.shp")
+
+
+### Plotting function
+
+generate_map <- function(data, risk_data, column, filter=4) {
+  # 1 is least deprived, 5 is most deprived
+  color_palette <- colorFactor(
+    palette = c("blue", "green", "yellow", "orange", "red"),
+    domain = data[[column]])
+
+  data <- data[data[[column]] >= filter,]
+
+  leaflet_data <- leaflet(data=data, options=leafletOptions(preferCanvas=TRUE)) %>%
+    addProviderTiles("OpenStreetMap.Mapnik", options=providerTileOptions(updateWhenZooming=FALSE, updateWhenIdle = TRUE)) %>%
+    addPolygons(
+      data = risk_data,
+      fillOpacity = 0.7,
+      color="black",
+      weight=1,
+      label="Smoke (placeholder)"
+    )%>%
+    addPolygons(data=data, fillColor=~color_palette(data[[column]]),
+                fillOpacity=0.7,
+                color="white",
+                weight=1) %>%
+    addLegend(position="bottomright",
+              values=~data[[column]],
+              title=column,
+              colors = c("black", "blue", "green", "yellow", "orange", "red"),
+              labels=c("Smoke (placeholder)", 
+                       "1 - Least Deprived", "2", "3", "4", "5 - Most Deprived"))
+}
+
+var1 <- "Residential_Instability_Quintiles"
+var2 <- "Economic_Dependency_Quintiles"
+var3 <- "Ethnocultural_Composition_Quintiles"
+var4 <- "SituationalVulnerability_Quintiles"
 
 
 
 
-### PREP ###
 
+#-------------------------------------------------------------------------------
+# UI
+#-------------------------------------------------------------------------------
 
-# Load the data files
-fire <- st_read("./data/fdr_scribe.shp")
-cities <- canada.cities[1:5]
-
-
-# Transform data to get fire risk level for each city
-city_points <- st_as_sf(cities, coords = c("long", "lat"), crs = 4326)
-
-city_points <- st_transform(city_points, crs = st_crs(fire))
-
-cities <- st_join(city_points, fire)
-
-
-# Remove province codes from city names
-cities$name <- substr(cities$name, 1, nchar(cities$name) - 3)
-
-
-# Transform GRIDCODE into fire danger level labels
-code_labels_en <- case_when(
-  is.na(cities$GRIDCODE) ~ "NA",
-  cities$GRIDCODE == 0 ~ "low",
-  cities$GRIDCODE == 1 ~ "moderate",
-  cities$GRIDCODE == 2 ~ "high",
-  cities$GRIDCODE == 3 ~ "very high",
-  cities$GRIDCODE == 4 ~ "extreme",
-  TRUE ~ "unknown"
-)
-
-code_labels_fr <- case_when(
-  is.na(cities$GRIDCODE) ~ "NA",
-  cities$GRIDCODE == 0 ~ "faible",
-  cities$GRIDCODE == 1 ~ "modéré",
-  cities$GRIDCODE == 2 ~ "élevé",
-  cities$GRIDCODE == 3 ~ "très élevé",
-  cities$GRIDCODE == 4 ~ "extrême",
-  TRUE ~ "inconnu"
-)
-
-cities <- cities %>%
-  mutate(danger_level = code_labels_en) %>%
-  mutate(danger_level_fr = code_labels_fr) %>%
-  rename(pt = country.etc)
-
-
-# Create cities table for display
-cities_table <- cities %>%
-  as.data.frame() %>%
-  dplyr::select(name, pt, pop, danger_level, danger_level_fr)
-
-
-# Change fire risk data's crs
-fire <- st_transform(fire, crs = '+proj=longlat +datum=WGS84')
-
-
-# Point to a translation file
-i18n <- Translator$new(translation_json_path = "translation.json")
-i18n$set_translation_language("English")
-i18n$use_js()
-
-
-
-### APP ###
-
-
-ui <- dashboardPage(
+# User interface
+ui <- fluidPage(
+  tags$head(tags$script(js, type ="text/javascript")),
   
-  freshTheme = create_theme(
-    adminlte_color(
-      light_blue = "#434C5E"),
-    adminlte_sidebar(
-      dark_bg = "#434C5E"
-    ),
-    adminlte_global(
-      content_bg = "#f9fafb"
-    )
+  useShinyjs(),
+  extendShinyjs(text = jscode, functions = "reload"),
+  #theme = shinytheme("sandstone"), titlePanel(" "),    
+  
+  #format error messages in bold red font
+  tags$head(
+    tags$style(HTML("
+      .shiny-output-error-validation {
+        color: #ff0000;
+        font-weight: bold;
+      }
+    "))
+  ),
+  useShinyjs(),
+  tags$head(
+    tags$style(HTML("hr {border-top: 1px solid #000000;}"))
   ),
   
-  dashboardHeader(title = tagList(
-    span(class = "logo-lg", icon("fire"),i18n$t("Fire Risk")),
-    span(class = "logo-icon", icon("fire"))),
-    tags$li(
-      class = 'dropdown',
-      div(
-        style = "margin: 8px;",
-        dropdownButton(
-          label = i18n$t("Language"),
-          icon = icon("language"),
-          status = "primary",
-          circle = FALSE,
-          right = TRUE,
-          width = '180px',
-          shiny.i18n::usei18n(i18n),
-          selectInput('selected_language',
-                      i18n$t("Select language"),
-                      choices = i18n$get_languages(),
-                      selected = i18n$get_key_translation()
-          )
-        )
-      ))
-  ),
+  tags$head(tags$link(rel = "stylesheet", type = "text/css", 
+                      href = "https://www150.statcan.gc.ca/wet-boew4b/css/theme.min.css")),
+  tags$head(tags$link(rel = "stylesheet", type = "text/css", 
+                      href = "https://infobase-dev.com/src/css/global.css")),	
   
-  dashboardSidebar(sidebarMenu(
-    menuItem(
-      i18n$t("Fire Risk"),
-      tabName = "fire_risk",
-      icon = icon("fire-extinguisher")
-    )
-  )),
-  
-  dashboardBody(fluidRow(
-    box(
-      title = i18n$t("Filters"),
-      status = "primary",
-      solidHeader = TRUE,
-      width = 3,
-      
-      checkboxGroupInput(
-        "danger_checkbox",
-        i18n$t("Select fire danger level"),
-        choices = c("low", "moderate", "high", "very high", "extreme"),
-        selected = "extreme"
-      ),
-      
-      sliderInput(
-        inputId = "n_cities",
-        label = i18n$t("Select number of cities at risk (by population)"),
-        min = 1,
-        max = cities %>%
-          filter(GRIDCODE == 4) %>%
-          nrow(),
-        value = 10,
-        step = 1
-      )
+  tabsetPanel(
+    id = "alltabpanel",
+    tabPanel("Maps", 
+             br(),
+             tabsetPanel(   
+               tabPanel("Map 1", 
+                        hr(),
+                        useShinyjs(),
+                        div(
+                          id="formthreshold",
+                          
+                          # br(),
+                          # hr(),
+                          
+                          fluidRow(
+                            column(4, pickerInput(inputId = "vulnerability_type", 
+                                                  "Vulnerability type", 
+                                                  choices = c(var1, var2, var3, var4))),
+                            column(4, pickerInput(inputId = "deprivation_level", 
+                                                  "Level of deprivation (Cumulative)", 
+                                                  choices = c(1,2,3,4,5), 
+                                                  selected = 4)),
+                            column(4, pickerInput(inputId = "filter3", 
+                                                  "Filter 3", 
+                                                  choices = c("Choice 1", "Choice 2", "Choice 3")))
+                          ),
+                          
+                          br(),
+                          
+                          fluidRow(
+                            column(width = 12, leafletOutput("plot_leaf"))
+                          )
+                          
+                          # hr(),
+
+                          ),#div
+               ),
+               
+               tabPanel("Map 2")
+             )
+             
     ),
     
-    column(width = 9,
-           fluidRow(
-             column(width = 12, leafletOutput("plot_leaf")),
-             column(width = 12, dataTableOutput("table_city"))
-           ))
-  ))
+    tabPanel("Tables", 
+             br(),
+             tabsetPanel(   
+               tabPanel("Table 1"),
+               tabPanel("Table 2")
+             )
+    )
+  )
 )
 
-server <- function(input, output, session) {
-  
-  # Update language in session
-  observeEvent(input$selected_language, {
-    shiny.i18n::update_lang(input$selected_language, session)
-  })
-  
-  # Filter cities based on user selection
-  cities_filtered <- reactive({
-    cities[cities$danger_level %in% input$danger_checkbox,]
-  })
-  
-  # Update slider
-  observeEvent(input$danger_checkbox, {
-    updateSliderInput(session, "n_cities", max = nrow(cities_filtered()))
-  })
-  
-  # Update checkbox
-  observe({
-    if (input$selected_language == "Français") {
-      updateCheckboxGroupInput(
-        session,
-        "danger_checkbox",
-        choices = c(
-          "faible" = "low",
-          "modéré" = "moderate",
-          "élevé" =  "high",
-          "très élevé" = "very high",
-          "extrême" = "extreme"
-        ),
-        selected = "extreme"
-      )
-    } else {
-      updateCheckboxGroupInput(
-        session,
-        "danger_checkbox",
-        choices = c(
-          "low" = "low",
-          "moderate" = "moderate",
-          "high" = "high",
-          "very high" = "very high",
-          "extreme" = "extreme"
-        ),
-        selected = "extreme"
-      )
-    }
-  })
+
+
+#-------------------------------------------------------------------------------
+# SERVER
+#-------------------------------------------------------------------------------
+
+# Server
+server <- function(input, output, session)   {
   
   
   ## MAP ##
@@ -214,128 +172,13 @@ server <- function(input, output, session) {
   
   output$plot_leaf <- renderLeaflet({
     
-    color_palette <- colorFactor(
-      palette = c("blue", "green", "yellow", "orange", "red"),
-      domain = fire$GRIDCODE
-    )
+    generate_map(filtered_data, filtered_fire, input$vulnerability_type, input$deprivation_level)
     
-    leaflet() %>%
-      setView(lng = -95.0,
-              lat = 60.0,
-              zoom = 3) %>%
-      addProviderTiles(providers$CartoDB.Positron) %>%
-      addGlPolygons(
-        data = fire,
-        fillColor = ~ color_palette(GRIDCODE),
-        fillOpacity = 0.7
-      ) %>%
-      addLegend(
-        "bottomright",
-        title = i18n$t("Fire danger"),
-        colors = c("blue", "green", "yellow", "orange", "red"),
-        labels = c(
-          i18n$t("low"),
-          i18n$t("moderate"),
-          i18n$t("high"),
-          i18n$t("very high"),
-          i18n$t("extreme")
-        ),
-        opacity = 0.7
-      )
   })
-  
-  
-  # Update circles based on filter selection
-  
-  observe({
-    top_cities <- cities_filtered() %>%
-      st_as_sf() %>%
-      arrange(desc(pop)) %>%
-      top_n(input$n_cities, wt = pop) %>%
-      st_transform(crs = '+proj=longlat +datum=WGS84')
-    
-    leafletProxy("plot_leaf") %>%
-      clearGroup("cities_group") %>%
-      addCircles(
-        data = top_cities,
-        color = "black",
-        group = "cities_group",
-        weight = 5,
-        radius = 1000,
-        fillOpacity = 0.7,
-        label = ~ paste0(name),
-        labelOptions = labelOptions(
-          style = list(padding = "3px 8px"),
-          textsize = "14px", 
-          distance = 50
-        )
-      )
-  })
-  
-  
-  ## TABLE ##
-  
-  
-  observe({
-    if (input$selected_language == "English") {
-      output$table_city <- renderDataTable({
-        datatable(
-          data = cities_table[1:4],
-          options = list(
-            order = list(list(4, 'desc'), list(3, 'desc')),
-            columnDefs = list(
-              list(targets = 0, visible = FALSE),
-              list(targets = 1, title = i18n$t("City")),
-              list(
-                targets = 2,
-                title = i18n$t("Province/territory")
-              ),
-              list(
-                targets = 3,
-                title = i18n$t("Population")
-              ),
-              list(
-                targets = 4,
-                title = i18n$t("Fire danger level")
-              )
-            ),
-            scrollX = TRUE
-          )
-        )
-      })
-    } else {
-      output$table_city <- renderDataTable({
-        datatable(
-          data = cities_table[, c(1:3, 5)],
-          options = list(
-            order = list(list(4, 'desc'), list(3, 'desc')),
-            columnDefs = list(
-              list(targets = 0, visible = FALSE),
-              list(targets = 1, title = i18n$t("City")),
-              list(
-                targets = 2,
-                title = i18n$t("Province/territory")
-              ),
-              list(
-                targets = 3,
-                title = i18n$t("Population")
-              ),
-              list(
-                targets = 4,
-                title = i18n$t("Fire danger level")
-              )
-            ),
-            scrollX = TRUE,
-            language = list(url = 'https://cdn.datatables.net/plug-ins/1.10.11/i18n/French.json')
-          )
-        )
-      })
-    }
-  })
-  
   
   
   
 }
 
-shinyApp(ui, server)
+# Run the application
+shinyApp(ui = ui,server = server)
