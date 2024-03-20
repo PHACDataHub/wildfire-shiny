@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     libudunits2-dev \
     libgdal-dev \
     libgeos-dev \
-    libproj-dev 
+    libproj-dev
 
 # install R packages required 
 # Change the packages list to suit your needs
@@ -40,11 +40,15 @@ RUN R -e 'install.packages(c(\
             "rmapshaper", \
             "mapview", \
             "httpuv", \
-            "htmlwidgets" \
-        ))'
+            "htmlwidgets", \
+            "shinythemes" \
+        ), dependencies = TRUE)'
 
 # need to install sf from cran
 RUN R -e "install.packages('sf', type = 'source', repos = 'https://cran.r-project.org/')"
+# need to install terra from cran
+# fixes libproj.so.22: cannot open shared object file: No such file or directory when installing from CRAN source
+RUN R -e "install.packages('terra', type = 'source', repos = 'https://cran.r-project.org/')"
 
 # clean up
 RUN rm -rf /tmp/downloaded_packages/ /tmp/*.rds
